@@ -11,13 +11,11 @@ type
     FNumeroPedido  : Integer;
     FDataEmissao   : TDateTime;
     FClienteCodigo : Integer;
-    FObservacao    : string;
     FItems         : TObjectList<TPedidoItem>;
   published
-    property NumeroPedido  : Integer                  read FNumeroPedido   write FNumeroPedido;
+    property NumeroPedido  : Integer                  read FNumeroPedido  write FNumeroPedido;
     property DataEmissao   : TDateTime                read FDataEmissao   write FDataEmissao;
     property ClienteCodigo : Integer                  read FClienteCodigo write FClienteCodigo;
-    property Observacao    : string                   read FObservacao    write FObservacao;
     property Items         : TObjectList<TPedidoItem> read FItems;
     function Total         : Currency; inline;
   public
