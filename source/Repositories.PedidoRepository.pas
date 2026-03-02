@@ -92,7 +92,7 @@ begin
                           '                         :VLR_TOTAL)     ';
       LQryAux.ParamByName('NUMERO_PEDIDO').AsInteger  := AItem.NumeroPedido;
       LQryAux.ParamByName('CODIGO_PRODUTO').AsInteger := AItem.Items[I].CodigoProduto;
-      LQryAux.ParamByName('QUANTIDADE').AsInteger     := AItem.Items[I].Quantidade;
+      LQryAux.ParamByName('QUANTIDADE').AsCurrency    := AItem.Items[I].Quantidade;
       LQryAux.ParamByName('VLR_UNITARIO').AsCurrency  := AItem.Items[I].VlrUnitario;
       LQryAux.ParamByName('VLR_TOTAL').AsCurrency     := AItem.Items[I].VlrTotal;
       LQryAux.ExecSQL;
