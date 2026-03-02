@@ -12,7 +12,7 @@ type
     FNumeroPedido  : Integer;
     FCodigoProduto : Integer;
     FDescricao     : string;
-    FQuantidade    : Integer;
+    FQuantidade    : Currency;
     FVlrUnitario   : Currency;
     FVlrTotal      : Currency;
   published
@@ -20,7 +20,7 @@ type
     property NumeroPedido  : Integer  read FNumeroPedido  write FNumeroPedido;
     property CodigoProduto : Integer  read FCodigoProduto write FCodigoProduto;
     property Descricao     : string   read FDescricao     write FDescricao;
-    property Quantidade    : Integer  read FQuantidade    write FQuantidade;
+    property Quantidade    : Currency read FQuantidade    write FQuantidade;
     property VlrUnitario   : Currency read FVlrUnitario   write FVlrUnitario;
     property VlrTotal      : Currency read FVlrTotal      write FVlrTotal;
   end;
