@@ -55,18 +55,15 @@ begin
     LQryAux.SQL.Text := 'INSERT INTO PEDIDO (NUMERO_PEDIDO,   '+
                         '                    DATA_EMISSAO,    '+
                         '                    CODIGO_CLIENTE,  '+
-                        '                    VALOR_TOTAL,     '+
-                        '                    OBSERVACAO)      '+
+                        '                    VALOR_TOTAL)      '+
                         '            VALUES (:NUMERO_PEDIDO,  '+
                         '                    :DATA_EMISSAO,   '+
                         '                    :CODIGO_CLIENTE, '+
-                        '                    :VALOR_TOTAL,    '+
-                        '                    :OBSERVACAO)     ';
+                        '                    :VALOR_TOTAL)     ';
     LQryAux.ParamByName('NUMERO_PEDIDO').AsInteger   := AItem.NumeroPedido;
     LQryAux.ParamByName('DATA_EMISSAO').AsDateTime   := AItem.DataEmissao;
     LQryAux.ParamByName('CODIGO_CLIENTE').AsInteger  := AItem.ClienteCodigo;
     LQryAux.ParamByName('VALOR_TOTAL').AsCurrency    := AItem.Total;
-    LQryAux.ParamByName('OBSERVACAO').AsString       := AItem.Observacao;
 
     LQryAux.ExecSQL;
   finally
