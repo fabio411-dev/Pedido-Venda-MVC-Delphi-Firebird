@@ -107,6 +107,19 @@
         <DCCReference Include="Models.PedidoItem.pas"/>
         <DCCReference Include="Models.Cliente.pas"/>
         <DCCReference Include="Models.Produto.pas"/>
+        <DCCReference Include="Repositories.ClienteRepository.pas"/>
+        <DCCReference Include="Repositories.ProdutoRepository.pas"/>
+        <DCCReference Include="Repositories.PedidoRepository.pas"/>
+        <DCCReference Include="Services.PedidoService.pas"/>
+        <DCCReference Include="UDataModulePrincipal.pas">
+            <Form>DataModulePrincipal</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="uFrmPedido.pas">
+            <Form>FrmPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
