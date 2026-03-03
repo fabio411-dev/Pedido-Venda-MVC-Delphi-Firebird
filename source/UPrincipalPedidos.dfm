@@ -14,4 +14,13 @@ object FPrincipalPedidos: TFPrincipalPedidos
   Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object btnNovo: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 50
+    Caption = 'Novo'
+    TabOrder = 0
+    OnClick = btnNovoClick
+  end
 end
