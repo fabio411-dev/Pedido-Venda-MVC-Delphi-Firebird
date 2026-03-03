@@ -32,7 +32,7 @@ type
 
     function  GetCliente(ACodigo: Integer): TCliente;
     function  GetProduto(ACodigo: Integer): TProduto;
-    procedure InsertOrUpdateItem(APedidoItemID  : Integer;
+    procedure InsertOrUpdateItem(APedidoItemControl : Integer;
                                  ACodigoProduto : Integer;
                                  AQuantidade    : Currency;
                                  AVlrUnitario   : Currency);
@@ -67,7 +67,7 @@ var
   LCliente: TCliente;
 begin
   LCliente := FClienteRepo.FindByCodigo(ACodigo);
-  if not Assigned(LCliente) then
+  if (LCliente = nil) then
   begin
     raise EPedidoException.Create('Cliente não encontrado.');
   end;
@@ -80,7 +80,7 @@ var
   LProduto: TProduto;
 begin
   LProduto := FProdutoRepo.FindByCodigo(ACodigo);
-  if not Assigned(LProduto) then
+  if (LProduto = nil) then
   begin
     raise EPedidoException.Create('Produto não encontrado.');
   end;
@@ -88,7 +88,7 @@ begin
   Result := LProduto;
 end;
 
-procedure TPedidoService.InsertOrUpdateItem(APedidoItemID  : Integer;
+procedure TPedidoService.InsertOrUpdateItem(APedidoItemControl  : Integer;
                                             ACodigoProduto: Integer;
                                             AQuantidade   : Currency;
                                             AVlrUnitario  : Currency);
@@ -102,7 +102,8 @@ begin
   LExisting := nil;
   for i := 0 to FPedido.Items.Count - 1 do
   begin
-    if FPedido.Items[I].ID = APedidoItemID then
+    if (APedidoItemControl > 0) and
+       (FPedido.Items[I].Control = APedidoItemControl) then
     begin
       LExisting := FPedido.Items[I];
       Break;
@@ -119,6 +120,7 @@ begin
   begin
     LItem := TPedidoItem.Create;
     LProduto := FProdutoRepo.FindByCodigo(ACodigoProduto);
+    LItem.Control       := APedidoItemControl;
     LItem.CodigoProduto := ACodigoProduto;
     LItem.Descricao     := LProduto.Descricao;
     LItem.Quantidade    := AQuantidade;

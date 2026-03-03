@@ -15,7 +15,9 @@ type
     FQuantidade    : Currency;
     FVlrUnitario   : Currency;
     FVlrTotal      : Currency;
+    FControl       : Integer;
   published
+    property Control       : Integer  read FControl       write FControl;
     property ID            : Integer  read FID            write FID;
     property NumeroPedido  : Integer  read FNumeroPedido  write FNumeroPedido;
     property CodigoProduto : Integer  read FCodigoProduto write FCodigoProduto;
