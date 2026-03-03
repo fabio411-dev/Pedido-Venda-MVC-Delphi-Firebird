@@ -12,12 +12,15 @@ type
     FDataEmissao   : TDateTime;
     FClienteCodigo : Integer;
     FItems         : TObjectList<TPedidoItem>;
+    FObservacao     : string;
   published
     property NumeroPedido  : Integer                  read FNumeroPedido  write FNumeroPedido;
     property DataEmissao   : TDateTime                read FDataEmissao   write FDataEmissao;
     property ClienteCodigo : Integer                  read FClienteCodigo write FClienteCodigo;
     property Items         : TObjectList<TPedidoItem> read FItems;
+    property Observacao    : string                   read FObservacao    write FObservacao;
     function Total         : Currency; inline;
+
   public
     constructor Create; reintroduce;
     destructor Destroy; override;

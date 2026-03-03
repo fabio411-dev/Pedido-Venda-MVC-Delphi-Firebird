@@ -27,9 +27,25 @@ object FrmPedido: TFrmPedido
     Left = 8
     Top = 8
     Width = 725
-    Height = 65
+    Height = 87
     BevelInner = bvLowered
     TabOrder = 2
+    object Label5: TLabel
+      Left = 32
+      Top = 49
+      Width = 27
+      Height = 13
+      Caption = 'Obs.:'
+    end
+    object edtObservacao: TMemo
+      Left = 71
+      Top = 46
+      Width = 641
+      Height = 32
+      MaxLength = 250
+      ScrollBars = ssVertical
+      TabOrder = 0
+    end
   end
   object edtClienteCodigo: TEdit
     Left = 79

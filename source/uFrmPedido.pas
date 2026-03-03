@@ -30,6 +30,8 @@ type
     btnGravar: TButton;
     Label4: TLabel;
     edtTotalPedido: TEdit;
+    edtObservacao: TMemo;
+    Label5: TLabel;
 
 
 
@@ -66,6 +68,7 @@ begin
     raise EPedidoException.Create('Pedido sem Itens.');
 
   try
+    FDService.Pedido.Observacao := edtObservacao.Text;
     FDService.SavePedido;
     ShowMessage('Pedido gravado com sucesso!');
 
@@ -76,6 +79,7 @@ begin
     lblProdutoDescricao.Caption := '';
     edtQuantidade.Clear;
     edtValorUnitario.Clear;
+    edtObservacao.Clear;
 
     DataModulePrincipal.cdsPedidoItem.EmptyDataSet;
 
