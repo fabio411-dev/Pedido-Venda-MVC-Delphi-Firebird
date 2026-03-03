@@ -179,7 +179,7 @@ begin
     Exit;
 
 
-  SelIndex := grdItens.SelectedIndex;  // index do item na lista
+  SelIndex := DataModulePrincipal.cdsPedidoItem.RecNo -1;  // index do item na lista
   if Key = VK_DELETE then
   begin
     if MessageDlg('Excluir item selecionado?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
@@ -187,6 +187,7 @@ begin
       FDService.RemoveItem(SelIndex);
       DataModulePrincipal.cdsPedidoItem.Delete;
       FItemControl := 0;
+      edtTotalPedido.Text := FormatFloat('R$ #,##0.00', FDService.Pedido.Total);
     end;
   end
   else
